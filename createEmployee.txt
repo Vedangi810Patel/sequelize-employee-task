@@ -1,0 +1,32 @@
+{
+    "id": 1,
+    "firstName": "dinky",
+    "lastName": "jani",
+    "email": "dinkyj27@gmail.com",
+    "password": "dinky@123",
+    "gender": "female",
+    "hobby": "travelling",
+    "dept_id": 2
+}
+
+{
+    "id": 2,
+    "firstName": "vedangi",
+    "lastName": "patel",
+    "email": "vedangi810@gmail.com",
+    "password": "vedangi@123",
+    "gender": "female",
+    "hobby": "dancing, travelling",
+    "dept_id": 3
+}
+
+{
+    "id": 3,
+    "firstName": "aneri",
+    "lastName": "patel",
+    "email": "aneri309@gmail.com",
+    "password": "aneri@123",
+    "gender": "female",
+    "hobby": "cooking",
+    "dept_id": 5
+}

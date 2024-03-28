@@ -27,7 +27,7 @@ const createEmployee = async (req, res) => {
     try {
         await sequelize.query(
             `INSERT INTO employees (emp_id, firstname, lastname, email, password, gender, hobby, dept_id) 
-      VALUES ('${id}','${firstName}', '${lastName}', '${email}', '${hashedPassword}', '${gender}', '${hobby}', ${dept_id})`,
+            VALUES ('${id}','${firstName}', '${lastName}', '${email}', '${hashedPassword}', '${gender}', '${hobby}', ${dept_id})`,
             { type: QueryTypes.INSERT }
         );
 
