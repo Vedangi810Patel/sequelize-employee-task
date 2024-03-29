@@ -7,6 +7,8 @@
     "gender": "female",
     "hobby": "travelling",
     "dept_id": 2
+
+    token : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpbmt5ajI3QGdtYWlsLmNvbSIsImlhdCI6MTcxMTY0MDE4NH0.rAFhBhgszsga1NsZYLPhmde-R5OdX4KY8OQYSz7w97g"
 }
 
 {
@@ -18,6 +20,8 @@
     "gender": "female",
     "hobby": "dancing, travelling",
     "dept_id": 3
+
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZlZGFuZ2k4MTBAZ21haWwuY29tIiwiaWF0IjoxNzExNjQwMDkwfQ.hdUdv---eoqf_g-JGaIkjZ1Q-0z0Onk9cUpSclDctjk"
 }
 
 {
@@ -29,4 +33,7 @@
     "gender": "female",
     "hobby": "cooking",
     "dept_id": 5
+
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZXJpMzA5QGdtYWlsLmNvbSIsImlhdCI6MTcxMTY0MDI0M30.7CkxLv8oNiOm3jDoW3ncFrpxjFghGiFmaZrJu2MlpI0"
+
 }

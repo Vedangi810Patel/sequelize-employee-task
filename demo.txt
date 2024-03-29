@@ -11,3 +11,34 @@ const fetchUsers = async (req, res) => {
 module.exports = {
     fetchUsers
 }
+
+
+
+
+
+const uploadFile = async (req, res) => {
+    try {
+        console.log(req.files)
+
+
+        let image = req.files.image //key and auth
+        if(image.length>1){
+            throw new error('multiple file not allowed')
+        }
+        if (image == undefined || image == null) throw new Error("file note found");
+        let savePath = `/public/assets/${Date.now()}.${image.name.split(".").pop()}`
+        image.mv(path.join(__dirname, ".." + savePath), async (err) => {
+            if (err) throw new Error("error in uploading")
+            else {
+                const updateQuery = 'UPDATE userdata SET profile_picture = ? WHERE id = ?'
+                await db.query(updateQuery, [savePath, req.user.id]);
+                res.status(201).send({
+                    message: 'file uploaded!'
+                })
+            }
+        });
+        } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: 'error in file upload api!' });
+    }
+};

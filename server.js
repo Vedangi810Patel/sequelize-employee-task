@@ -1,11 +1,6 @@
 const express = require("express");
 
-const FetchAllEmployees = require('./controllers/employees_controller');
-const CreateEmployee = require('./controllers/createEmployee');
-const getEmployeeById = require('./controllers/employeeById');
-const UpdateEmployee = require('./controllers/updateEmployee');
-const DeleteEmployee = require('./controllers/deleteEmployee');
-const EmployeeLogIn = require('./controllers/employeeLogIn');
+const controller = require('./controllers/employees_controller');
 const sequelize = require("./config/dbConfig");
 
 const bodyParser = require("body-parser");
@@ -15,17 +10,17 @@ const app = express();
 
 app.use(bodyParser.json());
 
-EmployeeCrudRoutes.get('/fetchAllEmpoyees', FetchAllEmployees);
+EmployeeCrudRoutes.get('/fetchAllEmpoyees', controller.fetchAllEmployees);
 
-EmployeeCrudRoutes.get('/createEmployee', CreateEmployee);
+EmployeeCrudRoutes.get('/createEmployee', controller.createEmployee);
 
-EmployeeCrudRoutes.get('/getEmployeeById', getEmployeeById);
+EmployeeCrudRoutes.get('/getEmployeeById', controller.getEmployeeById);
 
-EmployeeCrudRoutes.get('/UpdateEmployee', UpdateEmployee);
+EmployeeCrudRoutes.get('/UpdateEmployee', controller.updateEmployee);
 
-EmployeeCrudRoutes.get('/DeleteEmployee', DeleteEmployee);
+EmployeeCrudRoutes.get('/DeleteEmployee', controller.deleteEmployee);
 
-EmployeeCrudRoutes.get('/LogIn', EmployeeLogIn);
+EmployeeCrudRoutes.get('/LogIn', controller.EmployeeLogIn);
 
 app.use(EmployeeCrudRoutes);
 
