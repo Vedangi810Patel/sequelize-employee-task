@@ -1,12 +1,24 @@
 const { QueryTypes } = require('sequelize');
 const sequelize = require("../config/dbConfig");
+const profilepictureauthenticate = require('../middleware/profileMiddlewareAuthentication')
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 
 //Insert New Emplolyee
 const createEmployee = async (req, res) => {
-    const { id, firstName, lastName, email, password, gender, hobby, dept_id } = req.body;
+    try{
+        await profilepictureauthenticate(req, res, async function (err) {
+            if (err) {
+                return res.status(400).json({ error: err });
+            }
+
+            if (!req.file) {
+                return res.status(400).json({ error: "Error: No File Selected!" });
+            }
+
+            const { id, firstName, lastName, email, password, gender, hobby, dept_id } = req.body;
+            const profile = req.file.filename;
 
     // Check if all required fields are present
     if (!id || !firstName || !lastName || !email || !password || !dept_id) {
@@ -26,13 +38,13 @@ const createEmployee = async (req, res) => {
     // password encryption
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    try {
+ 
         await sequelize.query(
-            `INSERT INTO employees (emp_id, firstname, lastname, email, password, gender, hobby, dept_id) 
-            VALUES ('${id}','${firstName}', '${lastName}', '${email}', '${hashedPassword}', '${gender}', '${hobby}', ${dept_id})`,
+            `INSERT INTO employees (emp_id, firstname, lastname, email, password, profile, gender, hobby, dept_id) 
+            VALUES (${id}, '${firstName}', '${lastName}', '${email}', '${hashedPassword}', '${profile}','${gender}', '${hobby}', ${dept_id})`,
             { type: QueryTypes.INSERT }
         );
-
+    })
         res.status(200).json({ message: "User created successfully" });
     } catch (error) {
         console.error("Error adding user:", error);
@@ -48,8 +60,8 @@ const createEmployee = async (req, res) => {
 const fetchAllEmployees = async (req, res) => {
     try {
         const users = await sequelize.query(
-            `SELECT firstName, lastName, email, password, gender, hobby, departments.dept_name FROM employees 
-        LEFT JOIN departments ON employees.dept_id = departments.id`, { type: QueryTypes.SELECT }
+            `SELECT emp.emp_id, emp.firstname, emp.lastname, emp.email, emp.password, emp.gender, emp.hobby, dept.id dept_id, dept.dept_name FROM employees emp 
+            LEFT JOIN departments dept ON emp.dept_id = dept.id`, { type: QueryTypes.SELECT }
         );
 
         res.status(200).json(users);
@@ -150,7 +162,7 @@ const deleteEmployee = async (req, res) => {
 
 /* Log In and Token Generartion */ 
 // const JWT_SECRET = "uisdw782783dfjkf";
-const JWT_SECRET = "uisdw782783dfjkf";
+const JWT_SECRET = "employee";
 
 const EmployeeLogIn = async (req, res) => {
     const { email, password } = req.body;
@@ -185,6 +197,9 @@ const EmployeeLogIn = async (req, res) => {
         });
     }
 };
+
+/* -------------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------- */
 
 
 module.exports = {

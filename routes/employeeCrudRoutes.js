@@ -1,28 +1,19 @@
-// const express = require('express');
-// const FetchAllEmployees = require('../controllers/employees_controller');
-// const CreateEmployee = require('../controllers/createEmployee');
-// const getEmployeeById = require('../controllers/employeeById');
-// const UpdateEmployee = require('../controllers/updateEmployee');
-// const DeleteEmployee = require('../controllers/deleteEmployee');
-// const EmployeeLogIn = require('../controllers/employeeLogIn');
-// const employeeRoutes = express.Router();
+const express = require('express');
+const controller = require('../controllers/employees_controller');
+const middlwareAthentication = require('../middleware/middlewareAuthentication')
+const EmployeeRoutes = express.Router();
 
-// employeeRoutes.get('/', (req, res) => {
-//     res.send("Home Page!")
-// })
 
-// // employeeRoutes.get('/fetchAllEmpoyees', FetchAllEmployees);
+EmployeeRoutes.get('/fetchAllEmpoyees', middlwareAthentication, controller.fetchAllEmployees);
 
-// employeeRoutes.get('/createEmployee', CreateEmployee);
+EmployeeRoutes.get('/createEmployee', controller.createEmployee);
 
-// employeeRoutes.get('/getEmployeeById', getEmployeeById);
+EmployeeRoutes.get('/getEmployeeById', middlwareAthentication, controller.getEmployeeById);
 
-// employeeRoutes.get('/UpdateEmployee', UpdateEmployee);
+EmployeeRoutes.get('/UpdateEmployee', middlwareAthentication, controller.updateEmployee);
 
-// employeeRoutes.get('/DeleteEmployee', DeleteEmployee);
+EmployeeRoutes.get('/DeleteEmployee', middlwareAthentication, controller.deleteEmployee);
 
-// employeeRoutes.get('/LogIn', EmployeeLogIn);
+EmployeeRoutes.get('/LogIn', controller.EmployeeLogIn);
 
-// // app.listen(3000);
-
-// module.exports = employeeRoutes;
+module.exports = EmployeeRoutes;

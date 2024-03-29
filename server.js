@@ -1,26 +1,26 @@
 const express = require("express");
-
-const controller = require('./controllers/employees_controller');
 const sequelize = require("./config/dbConfig");
-
+const path = require('path');
 const bodyParser = require("body-parser");
-const EmployeeCrudRoutes = express.Router();
+const EmployeeCrudRoutes = require("./routes/employeeCrudRoutes");
 
 const app = express();
 
 app.use(bodyParser.json());
 
-EmployeeCrudRoutes.get('/fetchAllEmpoyees', controller.fetchAllEmployees);
+app.use("/public/assets", express.static(path.join(__dirname,"public", "assets")));
 
-EmployeeCrudRoutes.get('/createEmployee', controller.createEmployee);
+// EmployeeCrudRoutes.get('/fetchAllEmpoyees', controller.fetchAllEmployees);
 
-EmployeeCrudRoutes.get('/getEmployeeById', controller.getEmployeeById);
+// EmployeeCrudRoutes.get('/createEmployee', controller.createEmployee);
 
-EmployeeCrudRoutes.get('/UpdateEmployee', controller.updateEmployee);
+// EmployeeCrudRoutes.get('/getEmployeeById', controller.getEmployeeById);
 
-EmployeeCrudRoutes.get('/DeleteEmployee', controller.deleteEmployee);
+// EmployeeCrudRoutes.get('/UpdateEmployee', controller.updateEmployee);
 
-EmployeeCrudRoutes.get('/LogIn', controller.EmployeeLogIn);
+// EmployeeCrudRoutes.get('/DeleteEmployee', controller.deleteEmployee);
+
+// EmployeeCrudRoutes.get('/LogIn', controller.EmployeeLogIn);
 
 app.use(EmployeeCrudRoutes);
 
