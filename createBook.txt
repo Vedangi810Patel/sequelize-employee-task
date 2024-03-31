@@ -1,0 +1,25 @@
+{
+    "book_id" : 1,
+    "title" : "The God of Small Things",
+    "book_description" : "Set in Kerala, India, against the backdrop of political and social unrest, The God of Small Things tells the tragic story of the twins Rahel and Estha, exploring themes of love, caste discrimination, and the consequences of societal norms.",
+    "publish_year" : 1997,
+    "quantity_available" : 15
+}
+
+
+{
+    "book_id" : 2,
+    "title" : "A Suitable Boy",
+    "book_description" : "A sweeping saga set in post-independence India, A Suitable Boy follows the lives of four families as they navigate love, politics, and societal expectations, offering a panoramic view of Indian society in the 1950s.",
+    "publish_year" : 1993,
+    "quantity_available" : 9
+}
+
+
+{
+    "book_id" : 3,
+    "title" : "Midnights Children",
+    "book_description" : "Midnights Children follows the life of Saleem Sinai, who is born at the stroke of midnight on August 15, 1947, the exact moment of Indias independence from British rule. Through Saleems story, Rushdie weaves a tapestry of Indias post-colonial history and identity",
+    "publish_year" : 1981,
+    "quantity_available" : 9
+}

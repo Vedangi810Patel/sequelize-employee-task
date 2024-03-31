@@ -14,8 +14,6 @@ module.exports = {
 
 
 
-
-
 const uploadFile = async (req, res) => {
     try {
         console.log(req.files)

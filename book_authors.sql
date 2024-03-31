@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Mar 29, 2024 at 06:10 AM
--- Server version: 8.2.0
--- PHP Version: 8.2.13
+-- Host: 127.0.0.1
+-- Generation Time: Mar 31, 2024 at 06:30 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `book_authors`
 --
 
-DROP TABLE IF EXISTS `book_authors`;
-CREATE TABLE IF NOT EXISTS `book_authors` (
-  `book_author_id` int NOT NULL,
-  `book_id` int NOT NULL,
-  `author_id` int NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `book_authors` (
+  `book_author_id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `author_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

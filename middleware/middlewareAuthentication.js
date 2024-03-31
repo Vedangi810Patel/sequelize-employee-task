@@ -11,8 +11,8 @@ module.exports = (req, res, next) => {
         } else {
             next();
         }
-    } catch {
-        res.status(401).json({
+    }   catch {
+            res.status(401).json({
             error: new Error('Not Authorized!')
         });
     }
