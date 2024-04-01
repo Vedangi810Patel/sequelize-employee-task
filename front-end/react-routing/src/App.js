@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/HomePage.js';
 import FetchAllBookData from './components/FetchAllBookData.js' 
+import BookCrudReact from './components/BookCrudReact.js';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/fetchAllBooks' element={<FetchAllBookData />} />
+            <Route path='/insertBooks' element={<BookCrudReact />} />
           </Routes>
         </BrowserRouter>
       </header>
