@@ -1,25 +1,24 @@
 const express = require('express');
 const controller = require('../controllers/employees_controller');
 const middlwareAthentication = require('../middleware/middlewareAuthentication')
-const EmployeeRoutes = express.Router();
 const book_controller = require('../controllers/book_store_controller');
 const Routes = express.Router();
 const author_controller = require('../controllers/author_controller');
 const bookGenre_controller = require('../controllers/bookGenre_controller');
-const book_genre_controller = require('../controllers/book_genre_controller')
+const serchBook = require('../controllers/serchBook');
 
 
-EmployeeRoutes.get('/fetchAllEmpoyees', middlwareAthentication, controller.fetchAllEmployees);
+Routes.get('/fetchAllEmpoyees', middlwareAthentication, controller.fetchAllEmployees);
 
-EmployeeRoutes.get('/createEmployee', controller.createEmployee);
+Routes.get('/createEmployee', controller.createEmployee);
 
-EmployeeRoutes.get('/getEmployeeById', middlwareAthentication, controller.getEmployeeById);
+Routes.get('/getEmployeeById', middlwareAthentication, controller.getEmployeeById);
 
-EmployeeRoutes.get('/UpdateEmployee', middlwareAthentication, controller.updateEmployee);
+Routes.get('/UpdateEmployee', middlwareAthentication, controller.updateEmployee);
 
-EmployeeRoutes.get('/DeleteEmployee', middlwareAthentication, controller.deleteEmployee);
+Routes.get('/DeleteEmployee', middlwareAthentication, controller.deleteEmployee);
 
-EmployeeRoutes.get('/LogIn', controller.EmployeeLogIn);
+Routes.get('/LogIn', controller.EmployeeLogIn);
 
 Routes.get('/insertBooks', book_controller.createBook);
 
@@ -51,17 +50,27 @@ Routes.get('/updateGenre', bookGenre_controller.updateGenre);
 
 Routes.get('/deleteGenre', bookGenre_controller.deleteGenre);
 
-Routes.get('/createBookGenre' , book_genre_controller.createBookGenre);
+Routes.get('/fetchBookwithGenre', serchBook.fetchBookwithGenre);
 
-Routes.get('/fetchAllBookGenre', book_genre_controller.fetchAllBookGenres);
+Routes.get('/fetchBookGenre', serchBook.fetchBookGenre);
 
-Routes.get('/getBookNameGenre', book_genre_controller.getBookNameGenre);
+Routes.get('/fetchBookwithAuthor', serchBook.fetchBookwithAuthor);
 
-Routes.get('/updateBookGenre', book_genre_controller.updateBookGenre);
+Routes.get('/fetchBookAuthor', serchBook.fetchBookAuthor);
 
-Routes.get('/deleteBookGenre', book_genre_controller.deleteBookGenre)
+Routes.get('/fetchAll', serchBook.fetchAll);
+
+
+// Routes.get('/createBookGenre' , book_genre_controller.createBookGenre);
+
+// Routes.get('/fetchAllBookGenre', book_genre_controller.fetchAllBookGenres);
+
+// Routes.get('/getBookNameGenre', book_genre_controller.getBookNameGenre);
+
+// Routes.get('/updateBookGenre', book_genre_controller.updateBookGenre);
+
+// Routes.get('/deleteBookGenre', book_genre_controller.deleteBookGenre)
 
 module.exports = {
-    EmployeeRoutes,
     Routes
 };

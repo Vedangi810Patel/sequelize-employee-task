@@ -22,7 +22,6 @@ app.use("/public/assets", express.static(path.join(__dirname, "public", "assets"
 
 // EmployeeCrudRoutes.get('/LogIn', controller.EmployeeLogIn);
 
-app.use(route.EmployeeRoutes);
 app.use(route.Routes);
 
 sequelize;
