@@ -46,7 +46,7 @@ INSERT INTO `books` (`book_id`, `title`, `book_description`, `publish_year`, `qu
 (5, 'Five Point Someone', 'Set in the Indian Institute of Technology (IIT), Five Point Someone follows the misadventures of three engineering students as they navigate the pressures of academic life, friendship, and love, offering a humorous yet insightful commentary on the Indian education system.', 2004, 7),
 (6, 'A Fine Balance', 'Set in 1970s India, A Fine Balance chronicles the lives of four characters from different backgrounds whose paths intersect against the backdrop of political turmoil and social upheaval, offering a poignant portrayal of resilience, friendship, and the human spirit.', 1995, 2),
 (7, 'The White Tiger', 'The White Tiger follows the journey of Balram Halwai, a young man from a rural village in India, as he rises from poverty to become a successful entrepreneur in the bustling metropolis of Delhi, offering a sharp critique of Indias class divide and the complexities of power and corruption.', 2008, 3),
-(8, 'Malgudi Days', 'Malgudi Days is a collection of short stories set in the fictional town of Malgudi, capturing the essence of everyday life in India with humor, warmth, and vivid storytelling, showcasing Narayan\'s keen observation of human nature and Indian society.', 1943, 1);
+(8, 'Malgudi Days', 'Malgudi Days is a collection of short stories set in the fictional town of Malgudi, capturing the essence of everyday life in India with humor, warmth, and vivid storytelling, showcasing Narayans keen observation of human nature and Indian society.', 1943, 1);
 
 --
 -- Indexes for dumped tables
