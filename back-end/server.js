@@ -3,8 +3,11 @@ const sequelize = require("./config/dbConfig");
 const path = require('path');
 const bodyParser = require("body-parser");
 const route = require("./routes/employeeCrudRoutes");
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.json());
 
@@ -24,5 +27,6 @@ app.use("/public/assets", express.static(path.join(__dirname, "public", "assets"
 
 app.use(route.Routes);
 
+
 sequelize;
-app.listen(3000);
+app.listen(5000);
