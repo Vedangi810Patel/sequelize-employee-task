@@ -1,0 +1,98 @@
+/* .container {
+    width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.table-container {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-container th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.table-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-container tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.table-container button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.table-container button:hover {
+    background-color: #0056b3;
+}
+
+.table-container button:focus {
+    outline: none;
+} */
+
+.container {
+    width: 100%;
+    /* margin: 50px auto; */
+    /* padding: 20px; */
+    box-sizing: border-box;
+}
+
+.table-container {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+    /* border: 1px solid #ddd; */
+    padding: 10px;
+    text-align: left;
+}
+
+.table-container th {
+    /* background-color: #f2f2f2; */
+    font-weight: bold;
+}
+
+.table-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-container tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.table-container button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.table-container button:hover {
+    background-color: #0056b3;
+}
+
+.table-container button:focus {
+    outline: none;
+}

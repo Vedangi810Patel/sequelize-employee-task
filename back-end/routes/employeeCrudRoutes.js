@@ -20,7 +20,7 @@ Routes.get('/DeleteEmployee', middlwareAthentication, controller.deleteEmployee)
 
 Routes.get('/LogIn', controller.EmployeeLogIn);
 
-Routes.get('/insertBooks', book_controller.createBook);
+Routes.post('/insertBooks', book_controller.createBook);
 
 Routes.get('/fetchAllBooks', book_controller.fetchAllBooks);
 

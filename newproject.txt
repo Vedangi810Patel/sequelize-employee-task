@@ -1,0 +1,41 @@
+[11:56 AM] harsh sevak (Guest)
+Node JS Practical
+ 
+Note : Use any Database (Like: MongoDB / MySQL)
+
+Note : Use any ORM (Like: Mongoose / Sequelize)
+ 
+Register user with specific role (Roles are already stored in tabel).
+
+Note : 1. Admin 2. User
+ 
+Schema : id, firstName, lastName, email, password, gender, hobbies ,userRole, profile_pic 
+
+(For Password You have to store encrypted password)
+ 
+Note : Hobbies can be multiple
+ 
+Login Functionality : using email and password
+ 
+Using Authentication
+ 
+Modules : Create one table where module name and it's id is stored
+
+Modules : Create one table where list of actions is stored with id (Actions : Create, Update, Delete, List)
+ 
+Asset Management : Admin can assign module Permission to USER for read, create, update & delete
+ 
+1. Categories Module (Create Category, Update Category, List Categories by User, Delete Category)
+ 
+Schema : id, categoryname, createdBy
+ 
+Note : In createdBy which User has created category, Admin can delete any category but user can only delete his category
+ 
+2. Product Module (Create Produc, Update Product, List Product by USer, Delete Product)
+ 
+Schema : id, name, desc, categoryId, price
+ 
+Note : Admin can delete any product but user can only delete his product
+ 
+ 
+Note : Admin can assign list of actions to user like create, update, delete, list based on module ID So,user can perform only those actions.
