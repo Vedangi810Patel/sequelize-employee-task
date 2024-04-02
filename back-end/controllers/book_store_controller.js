@@ -64,30 +64,30 @@ const getBookByTitle = async (req, res) => {
 
 const updateBook = async (req, res) => {
     const {
-      book_id,
-      title,
-      book_description,
-      publish_year,
-      quantity_available,
+        book_id,
+        title,
+        book_description,
+        publish_year,
+        quantity_available,
     } = req.body;
-  
+
     if (!book_id || !title || !book_description || !publish_year || !quantity_available) {
-      return res.status(400).json({ error: "Missing required fields" });
+        return res.status(400).json({ error: "Missing required fields" });
     }
-  
+
     try {
-      await sequelize.query(
-        `UPDATE books SET 
+        await sequelize.query(
+            `UPDATE books SET 
           title = '${title}',
           book_description = '${book_description}',
           publish_year = '${publish_year}',
           quantity_available = '${quantity_available}' 
           WHERE book_id = ${book_id}`,
-        { type: QueryTypes.UPDATE }
-      );
-      res.status(200).json({ message: "Book updated successfully" });
+            { type: QueryTypes.UPDATE }
+        );
+        res.status(200).json({ message: "Book updated successfully" });
     } catch (error) {
-      console.error("Error adding user:", error);
+        console.error("Error adding user:", error);
     }
 };
 
@@ -110,7 +110,7 @@ const deleteBook = async (req, res) => {
         console.error("Error deleting Book:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
-}; 
+};
 
 
 module.exports = {
