@@ -8,10 +8,19 @@ function BookUpdate() {
     const [selectedBook, setSelectedBook] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/fetchAllBooks')
-            .then(response => response.json())
-            .then(data => setBooks(data))
-            .catch(error => console.error('Error fetching posts:', error));
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:5000/fetchAllBooks');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    setBooks(data);
+                } else {
+                    console.error('Error fetching posts:', xhr.statusText);
+                }
+            }
+        };
+        xhr.send();
     }, [showPopup]);
 
     const handleUpdate = (book) => {
@@ -20,19 +29,21 @@ function BookUpdate() {
     };
 
     const handleUpdateSubmit = (updatedData) => {
-        fetch('http://localhost:5000/updateBook', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedData)
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Update response:", data);
-                setShowPopup(false);
-            })
-            .catch(error => console.error('Error updating book:', error));
+        const xhr = new XMLHttpRequest();
+        xhr.open('PUT', 'http://localhost:5000/updateBook');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    console.log("Update response:", data);
+                    setShowPopup(false);
+                } else {
+                    console.error('Error updating book:', xhr.statusText);
+                }
+            }
+        };
+        xhr.send(JSON.stringify(updatedData));
     };
 
     const handleCancel = () => {
@@ -43,20 +54,20 @@ function BookUpdate() {
         const confirmDelete = window.confirm('Are you sure you want to delete?');
         if (confirmDelete) {
             try {
-                const response = await fetch(`http://localhost:5000/deleteBook`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ book_id: book.book_id })
-                });
-                if (response.ok) {
-                    console.log('Book deleted successfully.');
-                    // Remove the deleted book from the state
-                    setBooks(prevBooks => prevBooks.filter(b => b.book_id !== book.book_id));
-                } else {
-                    console.error('Failed to delete book:', response.statusText);
-                }
+                const xhr = new XMLHttpRequest();
+                xhr.open('DELETE', 'http://localhost:5000/deleteBook');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            console.log('Book deleted successfully.');
+                            setBooks(prevBooks => prevBooks.filter(b => b.book_id !== book.book_id));
+                        } else {
+                            console.error('Failed to delete book:', xhr.statusText);
+                        }
+                    }
+                };
+                xhr.send(JSON.stringify({ book_id: book.book_id }));
             } catch (error) {
                 console.error('Error deleting book:', error);
             }
@@ -105,6 +116,8 @@ function BookUpdate() {
 
 export default BookUpdate;
 
+
+
 // import React, { useState, useEffect } from 'react';
 // import './BookUpdate.css';
 // import UpdateForm from './UpdateForm';
@@ -117,10 +130,19 @@ export default BookUpdate;
 //     const [booksPerPage] = useState(5); // Change this value as needed
 
 //     useEffect(() => {
-//         fetch('http://localhost:5000/fetchAllBooks')
-//             .then(response => response.json())
-//             .then(data => setBooks(data))
-//             .catch(error => console.error('Error fetching posts:', error));
+//         const xhr = new XMLHttpRequest();
+//         xhr.open('GET', 'http://localhost:5000/fetchAllBooks');
+//         xhr.onreadystatechange = function () {
+//             if (xhr.readyState === XMLHttpRequest.DONE) {
+//                 if (xhr.status === 200) {
+//                     const data = JSON.parse(xhr.responseText);
+//                     setBooks(data);
+//                 } else {
+//                     console.error('Error fetching posts:', xhr.statusText);
+//                 }
+//             }
+//         };
+//         xhr.send();
 //     }, [showPopup]);
 
 //     const handleUpdate = (book) => {
@@ -129,19 +151,21 @@ export default BookUpdate;
 //     };
 
 //     const handleUpdateSubmit = (updatedData) => {
-//         fetch('http://localhost:5000/updateBook', {
-//             method: 'PUT',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(updatedData)
-//         })
-//             .then(response => response.json())
-//             .then(data => {
-//                 console.log("Update response:", data);
-//                 setShowPopup(false);
-//             })
-//             .catch(error => console.error('Error updating book:', error));
+//         const xhr = new XMLHttpRequest();
+//         xhr.open('PUT', 'http://localhost:5000/updateBook');
+//         xhr.setRequestHeader('Content-Type', 'application/json');
+//         xhr.onreadystatechange = function () {
+//             if (xhr.readyState === XMLHttpRequest.DONE) {
+//                 if (xhr.status === 200) {
+//                     const data = JSON.parse(xhr.responseText);
+//                     console.log("Update response:", data);
+//                     setShowPopup(false);
+//                 } else {
+//                     console.error('Error updating book:', xhr.statusText);
+//                 }
+//             }
+//         };
+//         xhr.send(JSON.stringify(updatedData));
 //     };
 
 //     const handleCancel = () => {
@@ -156,6 +180,13 @@ export default BookUpdate;
 
 //     const paginate = (pageNumber) => {
 //         setCurrentPage(Math.min(Math.max(1, pageNumber), totalPages));
+//     };
+
+//     const handlePageChange = (event) => {
+//         const pageNumber = parseInt(event.target.value);
+//         if (!isNaN(pageNumber) && pageNumber > 0 && pageNumber <= totalPages) {
+//             setCurrentPage(pageNumber);
+//         }
 //     };
 
 //     return (
@@ -189,7 +220,14 @@ export default BookUpdate;
 //             </table>
 //             <div className="pagination">
 //                 <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
-//                 <span>{currentPage}</span>
+//                 <input
+//                     type="number"
+//                     value={currentPage}
+//                     min={1}
+//                     max={totalPages}
+//                     onChange={handlePageChange}
+//                 />
+//                 <span> of {totalPages}</span>
 //                 <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
 //             </div>
 //             {showPopup && (
