@@ -2,11 +2,11 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/HomePage.js';
-import FetchAllBookData from './components/FetchAllBookData.js' 
+import FetchAllBookData from './components/FetchAllBookData.js'
 import BookCreate from './components/BookCreate.js';
 import BookUpdate from './components/BookUpdate.js';
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <ToastContainer />
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home />}/>
+            <Route path='/' element={<Home />} />
             <Route path='/fetchAllBooks' element={<FetchAllBookData />} />
             <Route path='/insertBooks' element={<BookCreate />} />
             <Route path='/updateBooks' element={<BookUpdate />} />

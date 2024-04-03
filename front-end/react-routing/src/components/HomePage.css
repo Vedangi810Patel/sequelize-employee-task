@@ -1,0 +1,29 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    /* Use flexbox */
+}
+
+li {
+    margin-right: 12%;
+    margin-left: 12%;
+    /* Add some spacing between buttons */
+}
+
+.link {
+    padding: 10px 20px;
+    /* Adjust padding as needed */
+    background-color: #34669b;
+    /* Button background color */
+    color: #ffffff;
+    /* Text color */
+    border: none;
+    cursor: pointer;
+
+}
+
+.link:hover {
+    background-color: #0056b3;
+    /* Change background color on hover */
+}
