@@ -20,15 +20,15 @@ Routes.get('/DeleteEmployee', middlwareAthentication, controller.deleteEmployee)
 
 Routes.get('/LogIn', controller.EmployeeLogIn);
 
-Routes.get('/insertBooks', book_controller.createBook);
+Routes.post('/insertBooks', book_controller.createBook);
 
 Routes.get('/fetchAllBooks', book_controller.fetchAllBooks);
 
 Routes.get('/getBookByTitle', book_controller.getBookByTitle);
 
-Routes.get('/updateBook', book_controller.updateBook);
+Routes.put('/updateBook', book_controller.updateBook);
 
-Routes.get('/deleteBook', book_controller.deleteBook);
+Routes.delete('/deleteBook', book_controller.deleteBook);
 
 Routes.get('/createAuthor', author_controller.createAuthor);
 
