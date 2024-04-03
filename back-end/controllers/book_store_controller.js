@@ -78,14 +78,16 @@ const updateBook = async (req, res) => {
     try {
         await sequelize.query(
             `UPDATE books SET 
-          title = '${title}',
-          book_description = '${book_description}',
-          publish_year = '${publish_year}',
-          quantity_available = '${quantity_available}' 
-          WHERE book_id = ${book_id}`,
+            book_id = ${book_id},
+            title = '${title}',
+            book_description = '${book_description}',
+            publish_year = '${publish_year}',
+            quantity_available = '${quantity_available}' 
+            WHERE book_id = ${book_id}`,
             { type: QueryTypes.UPDATE }
         );
         res.status(200).json({ message: "Book updated successfully" });
+        // res.status(200).json(res.send("Book Updated Sucessfully !"));
     } catch (error) {
         console.error("Error adding user:", error);
     }

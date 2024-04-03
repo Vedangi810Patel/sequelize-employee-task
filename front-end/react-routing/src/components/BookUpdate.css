@@ -21,6 +21,10 @@
     font-weight: bold;
 }
 
+.description {
+    width: auto;
+}
+
 .table-container tbody tr:hover {
     background-color: #bbb9b9;
 }
@@ -38,12 +42,12 @@ Button styles .button-container button {
     font-size: 14px;
 }
 
-.button-container button.update {
+button.update {
     background-color: #4CAF50;
     color: white;
 }
 
-.button-container button.delete {
+button.delete {
     background-color: #f44336;
     color: white;
 }
